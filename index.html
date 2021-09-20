@@ -37,8 +37,12 @@
                 <main>
                     <ul v-if="todoList.length>0">
                         <li v-for="(todo, index) in filteredTodoList" :key="index">
-                            <div @mouseup="toggleCompleted(index)"  :class="{completed: todo.completed}">{{todo.content}}</div>
-                            <div class="backElement"><i @click="modifyItem(index)" class="fas fa-pencil-alt"></i><i @click="deleteElement(index)" class="fas fa-times"></i></div>
+                            <div v-if="todo.onModify==false" @mouseup="toggleCompleted(index)"  :class="{completed: todo.completed}">{{todo.content}}</div>
+                            <div v-else>
+                                <input @keyup.enter="modifyItem(index)" type="text" v-model="textTobeModified">
+                                <button @mouseup="modifyItem(index)">Save changes</button>
+                            </div>
+                            <div class="backElement"><i @click="toggleOnmodify(index)" class="fas fa-pencil-alt"></i><i @click="deleteElement(index)" class="fas fa-times"></i></div>
                         </li>
                     </ul>
                     <H3 v-else>THE LIST IS EMPTY</H3>

@@ -5,27 +5,33 @@ var app = new Vue({
             {
                 content: "comprare salmone",
                 id: 1,
-                completed: false
+                completed: false,
+                onModify: false
             },
             {
                 content: "andare dal parrucchiere",
                 id: 2,
-                completed: true
+                completed: true,
+                onModify: false
             },
             {
                 content: "tagliare il prato",
                 id: 3,
-                completed: false
+                completed: false,
+                onModify: false
             },
             {
                 content: "andare a trovare nonna",
                 id: 4,
-                completed: false
+                completed: false,
+                onModify: false
             }
         ],
         filteredTodoList:[],
         newTodo:"",
         lastId:4,
+        textTobeModified: "",
+        flagModify: false,
         listStatus:2 // 2=all, 1=completed, 0=active
     },
     methods: {
@@ -43,9 +49,17 @@ var app = new Vue({
             }
         },
         modifyItem(index){
-            let temp=prompt("insert the modifiex text: ");
-            if(temp!=""){
-                this.todoList[index].content=temp;
+            if(this.textTobeModified!=""){
+                this.todoList[index].content=this.textTobeModified;
+            }
+            this.textTobeModified="";
+            this.todoList[index].onModify=false;
+            this.flagModify= false;
+        },
+        toggleOnmodify(index){
+            if(this.flagModify!=true){
+                this.todoList[index].onModify=true;
+                this.flagModify=true;
             }
         },
         clearList(){

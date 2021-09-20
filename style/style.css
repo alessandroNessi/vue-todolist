@@ -52,6 +52,10 @@ li{
     justify-content: space-between;
     cursor: pointer;
 }
+li:hover{
+    background-color: snow;
+    transition: background-color 150ms;
+}
 .fas{
     margin-left: 15px;
 }
