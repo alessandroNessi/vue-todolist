@@ -19,6 +19,8 @@ header, nav{
 /*navc style*/
 .filters{
     margin-top: 30px;
+    text-decoration: underline;
+    color: #333;
 }
 
 /* main style */
@@ -33,7 +35,15 @@ li{
     justify-content: space-between;
     border-bottom: 1px solid #999;
     display: flex;
+    padding: 5px;
     justify-content: space-between;
+}
+.completed{
+    color:#444;
+    text-decoration: line-through;
+}
+.frontElement{
+    /* color: red; */
 }
 main{
     display: flex;

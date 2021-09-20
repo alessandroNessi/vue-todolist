@@ -19,23 +19,27 @@
         <title>Document</title>
     </head>
     <body>
-        <div id="root">
-            <header>
-                <img class="headerLogo" src="media/logo.png" alt="boolean logo">
-            </header>
-            <nav>
-                <input type="text" placeholder="Insert new ToDo" id="userInput">
-                <button>Add</button>
-                <div class="filters">filters</div>
-            </nav>
-            <main>
-                <ul>
-                    <li>
-                        <div class="frontElement">hi</div>
-                        <div class="backElement"><i class="fas fa-times"></i></div>
-                    </li>
-                </ul>
-            </main>
+        <div id="root">    
+            <div id="root">
+                <header>
+                    <img class="headerLogo" src="media/logo.png" alt="boolean logo">
+                </header>
+                <nav>
+                    <input v-model="newTodo" type="text" placeholder="Insert new ToDo" id="userInput">
+                    <button @mouseup="addItem()">Add</button>
+                    <div class="filters">filters</div>
+                </nav>
+                <main>
+                    <ul>
+                        <li v-for="(todo, index) in todoList" :key="index">
+                            <div @mouseup="toggleCompleted()" class="frontElement" :class="{completed:todo.completed}">{{todo.content}}</div>
+                            <div class="backElement"><i @click="deleteElement(index)" class="fas fa-times"></i></div>
+                        </li>
+                    </ul>
+                </main>
+            </div>
         </div>
+        <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+        <script src="scripts/script.js"></script>
     </body>
 </html>
