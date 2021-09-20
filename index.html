@@ -28,23 +28,15 @@
                     <input v-model="newTodo" @keyup.enter="addItem()" type="text" placeholder="Insert new ToDo" id="userInput">
                     <button @mouseup="addItem()">Add</button>
                     <div class="filters">
-                        <div @click="listStatus='active'">active</div> 
-                        <div @click="listStatus='completed'">completed</div> 
-                        <div @click="listStatus='all'">all</div>
+                        <div @click="filterArray(0)">active</div> 
+                        <div @click="filterArray(1)">completed</div> 
+                        <div @click="filterArray(2)">all</div>
                     </div>
-                    <div @click="clearList()" class="deteleAll">delete all</div>
+                    <div @click="clearList()" class="deteleAll">delete all completed</div>
                 </nav>
                 <main>
                     <ul v-if="todoList.length>0">
-                        <li v-for="(todo, index) in todoList" v-if="(todo.completed==false&&(listStatus=='all'||listStatus=='active'))||listStatus=='all'||(todo.completed==true&&(listStatus=='all'||listStatus=='completed'))" :key="index">
-                            <div @mouseup="toggleCompleted(index)"  :class="{completed: todo.completed}">{{todo.content}}</div>
-                            <div class="backElement"><i @click="modifyItem(index)" class="fas fa-pencil-alt"></i><i @click="deleteElement(index)" class="fas fa-times"></i></div>
-                        </li>
-                        <li v-for="(todo, index) in todoList" v-if="(todo.completed==false&&(listStatus=='all'||listStatus=='active'))||listStatus=='all'||(todo.completed==true&&(listStatus=='all'||listStatus=='completed'))" :key="index">
-                            <div @mouseup="toggleCompleted(index)"  :class="{completed: todo.completed}">{{todo.content}}</div>
-                            <div class="backElement"><i @click="modifyItem(index)" class="fas fa-pencil-alt"></i><i @click="deleteElement(index)" class="fas fa-times"></i></div>
-                        </li>
-                        <li v-for="(todo, index) in todoList" v-if="(todo.completed==false&&(listStatus=='all'||listStatus=='active'))||listStatus=='all'||(todo.completed==true&&(listStatus=='all'||listStatus=='completed'))" :key="index">
+                        <li v-for="(todo, index) in filteredTodoList" :key="index">
                             <div @mouseup="toggleCompleted(index)"  :class="{completed: todo.completed}">{{todo.content}}</div>
                             <div class="backElement"><i @click="modifyItem(index)" class="fas fa-pencil-alt"></i><i @click="deleteElement(index)" class="fas fa-times"></i></div>
                         </li>

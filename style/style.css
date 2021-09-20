@@ -28,7 +28,7 @@ header, nav{
 }
 .deteleAll{
     background-color: salmon;
-    width: 100px;
+    width: 150px;
     box-shadow: 0 0 2px 3px black;
     margin: auto;
     margin-top: 50px;
@@ -58,11 +58,6 @@ li{
 .completed{
     color:#444;
     text-decoration: line-through;
-}
-
-
-.frontElement{
-    /* color: red; */
 }
 main{
     display: flex;

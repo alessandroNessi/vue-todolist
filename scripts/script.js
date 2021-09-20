@@ -49,13 +49,14 @@ var app = new Vue({
             }
         },
         clearList(){
-            this.todoList=[];
+            this.todoList=this.todoList.filter((element) => element.completed==false);
+            this.filteredTodoList=[...this.todoList];
         },
         filterArray(filter){
             if(filter==0){
-                this.filteredTodoList=this.todoList.filter((element) => element.completed==false)
+                this.filteredTodoList=this.todoList.filter((element) => element.completed==false);
             }else if(filter==1){
-                this.filteredTodoList=this.todoList.filter((element) => element.completed==true)
+                this.filteredTodoList=this.todoList.filter((element) => element.completed==true);
             }else{
                 this.filteredTodoList=[...this.todoList];
             }
