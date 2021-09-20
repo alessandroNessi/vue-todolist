@@ -27,13 +27,8 @@ var app = new Vue({
         lastId:4
     },
     methods: {
-        toggleCompleted(){
-            // this.completed?this.completed=false:this.completed=true;
-            if(this.completed==true){
-                this.completed=false;
-            }else{
-                this.completed=true;
-            }
+        toggleCompleted(index){
+            this.todoList[index].completed?this.todoList[index].completed=false:this.todoList[index].completed=true;
         },
         deleteElement(index){
             this.todoList.splice(index,1);

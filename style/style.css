@@ -37,6 +37,7 @@ li{
     display: flex;
     padding: 5px;
     justify-content: space-between;
+    cursor: pointer;
 }
 .completed{
     color:#444;
