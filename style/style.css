@@ -9,20 +9,33 @@ body{
 /*header style*/
 .headerLogo{
     width: 320px;
-    margin-top: 30px;
+    margin-top: 50px;
 }
 header, nav{
     text-align: center;
-    height: 130px;
+    height: 200px;
 }
 
 /*navc style*/
 .filters{
-    margin-top: 30px;
     text-decoration: underline;
     color: #333;
+    width: 320px;
+    margin:auto;
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-between;
 }
-
+.deteleAll{
+    background-color: salmon;
+    width: 100px;
+    box-shadow: 0 0 2px 3px black;
+    margin: auto;
+    margin-top: 50px;
+}
+.filters *, .deteleAll{
+    cursor: pointer;
+}
 /* main style */
 ul{
     list-style: none;
@@ -43,8 +56,10 @@ li{
     color:#444;
     text-decoration: line-through;
 }
+
+
 .frontElement{
-    color: red;
+    /* color: red; */
 }
 main{
     display: flex;
