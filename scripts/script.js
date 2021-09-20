@@ -23,9 +23,10 @@ var app = new Vue({
                 completed: false
             }
         ],
+        filteredTodoList:[],
         newTodo:"",
         lastId:4,
-        listStatus:"all" // all or active or completed
+        listStatus:2 // 2=all, 1=completed, 0=active
     },
     methods: {
         toggleCompleted(index){
@@ -49,6 +50,18 @@ var app = new Vue({
         },
         clearList(){
             this.todoList=[];
+        },
+        filterArray(filter){
+            if(filter==0){
+                this.filteredTodoList=this.todoList.filter((element) => element.completed==false)
+            }else if(filter==1){
+                this.filteredTodoList=this.todoList.filter((element) => element.completed==true)
+            }else{
+                this.filteredTodoList=[...this.todoList];
+            }
         }
+    },
+    mounted(){
+        this.filteredTodoList=[...this.todoList];
     }
 });
