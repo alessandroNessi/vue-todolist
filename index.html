@@ -40,6 +40,14 @@
                             <div @mouseup="toggleCompleted(index)"  :class="{completed: todo.completed}">{{todo.content}}</div>
                             <div class="backElement"><i @click="modifyItem(index)" class="fas fa-pencil-alt"></i><i @click="deleteElement(index)" class="fas fa-times"></i></div>
                         </li>
+                        <li v-for="(todo, index) in todoList" v-if="(todo.completed==false&&(listStatus=='all'||listStatus=='active'))||listStatus=='all'||(todo.completed==true&&(listStatus=='all'||listStatus=='completed'))" :key="index">
+                            <div @mouseup="toggleCompleted(index)"  :class="{completed: todo.completed}">{{todo.content}}</div>
+                            <div class="backElement"><i @click="modifyItem(index)" class="fas fa-pencil-alt"></i><i @click="deleteElement(index)" class="fas fa-times"></i></div>
+                        </li>
+                        <li v-for="(todo, index) in todoList" v-if="(todo.completed==false&&(listStatus=='all'||listStatus=='active'))||listStatus=='all'||(todo.completed==true&&(listStatus=='all'||listStatus=='completed'))" :key="index">
+                            <div @mouseup="toggleCompleted(index)"  :class="{completed: todo.completed}">{{todo.content}}</div>
+                            <div class="backElement"><i @click="modifyItem(index)" class="fas fa-pencil-alt"></i><i @click="deleteElement(index)" class="fas fa-times"></i></div>
+                        </li>
                     </ul>
                     <H3 v-else>THE LIST IS EMPTY</H3>
                 </main>

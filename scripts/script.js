@@ -42,7 +42,10 @@ var app = new Vue({
             }
         },
         modifyItem(index){
-            this.todoList[index].content=prompt("insert the modifiex text: ");
+            let temp=prompt("insert the modifiex text: ");
+            if(temp!=""){
+                this.todoList[index].content=temp;
+            }
         },
         clearList(){
             this.todoList=[];
