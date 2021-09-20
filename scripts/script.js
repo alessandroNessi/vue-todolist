@@ -24,7 +24,8 @@ var app = new Vue({
             }
         ],
         newTodo:"",
-        lastId:4
+        lastId:4,
+        listStatus:"all" // all or active or completed
     },
     methods: {
         toggleCompleted(index){
@@ -39,6 +40,12 @@ var app = new Vue({
                 this.todoList.push({content: this.newTodo, id: this.lastId, completed: false});
                 this.newTodo="";
             }
+        },
+        modifyItem(index){
+            this.todoList[index].content=prompt("insert the modifiex text: ");
+        },
+        clearList(){
+            this.todoList=[];
         }
     }
 });

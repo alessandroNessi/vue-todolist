@@ -52,6 +52,9 @@ li{
     justify-content: space-between;
     cursor: pointer;
 }
+.fas{
+    margin-left: 15px;
+}
 .completed{
     color:#444;
     text-decoration: line-through;

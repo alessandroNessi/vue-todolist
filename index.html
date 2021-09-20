@@ -32,13 +32,13 @@
                         <div>completed</div> 
                         <div>all</div>
                     </div>
-                    <div class="deteleAll">delete all</div>
+                    <div @click="clearList()" class="deteleAll">delete all</div>
                 </nav>
                 <main>
                     <ul v-if="todoList.length>0">
                         <li v-for="(todo, index) in todoList" :key="index">
                             <div @mouseup="toggleCompleted(index)"  :class="{completed: todo.completed}">{{todo.content}}</div>
-                            <div class="backElement"><i @click="deleteElement(index)" class="fas fa-times"></i></div>
+                            <div class="backElement"><i @click="modifyItem(index)" class="fas fa-pencil-alt"></i><i @click="deleteElement(index)" class="fas fa-times"></i></div>
                         </li>
                     </ul>
                     <H3 v-else>THE LIST IS EMPTY</H3>
