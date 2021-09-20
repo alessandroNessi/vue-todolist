@@ -32,7 +32,7 @@
                 <main>
                     <ul>
                         <li v-for="(todo, index) in todoList" :key="index">
-                            <div @mouseup="toggleCompleted()" class="frontElement" :class="{completed:todo.completed}">{{todo.content}}</div>
+                            <div @mouseup="toggleCompleted()"  :class="{completed:todo.completed}">{{todo.content}}</div>
                             <div class="backElement"><i @click="deleteElement(index)" class="fas fa-times"></i></div>
                         </li>
                     </ul>

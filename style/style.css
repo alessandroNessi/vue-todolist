@@ -43,7 +43,7 @@ li{
     text-decoration: line-through;
 }
 .frontElement{
-    /* color: red; */
+    color: red;
 }
 main{
     display: flex;

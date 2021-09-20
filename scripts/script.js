@@ -35,8 +35,8 @@ var app = new Vue({
                 this.completed=true;
             }
         },
-        deleteElement(){
-            this.todoList.splice(this.index,1);
+        deleteElement(index){
+            this.todoList.splice(index,1);
         },
         addItem(){
             if(this.newTodo!=""){
